@@ -17,3 +17,16 @@ c = 3;
 d = 4;
 
 [a, b, c, d] = swap(a, b, c, d)
+
+% NOTE THIS : The result is not 1 as MATLAB cannot guarantee that 
+% the frozen values of non variables are same.
+A = 5;
+h1 = @(x)A * x.^2;
+h2 = @(x)A * x.^2;
+isequal(h1,h2)
+
+% NOTE THIS
+h1 = @(x)A * x.^2;
+h2 = h1;
+isequal(h1,h2) % Answer is 1
+
